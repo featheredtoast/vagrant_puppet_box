@@ -11,15 +11,12 @@ class ghar::ghar {
 	
 	ghar-add { "zshrc":
 		location => "https://github.com/awole20/zshrc.git",
-		notify => Exec["ghar-install"],
 	}
 	ghar-add { "vimrc":
 		location => "https://github.com/awole20/vimrc.git",
-		notify => Exec["ghar-install"],
 	}
 	ghar-add { "gitconfig":
 		location => "https://github.com/awole20/gitconfig.git",
-		notify => Exec["ghar-install"],
 	}
 	
 	exec { "ghar-install":
