@@ -23,8 +23,9 @@ class ghar::ghar {
 	
 	exec { "ghar-install":
 		command => "ghar install",
-		path    => ["/usr/local/bin/", "/bin/", "/home/jwong/ghar/bin/"],
+		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/jwong/ghar/bin/"],
 		require => Vcsrepo["/home/jwong/ghar"],
+		user => jwong,
 	}
 	
 }
@@ -32,7 +33,8 @@ class ghar::ghar {
 define ghar-add( $location ) {
 	exec { "ghar-add-${location}":
 		command => "ghar add ${location}",
-		path    => ["/usr/local/bin/", "/bin/", "/home/jwong/ghar/bin/"],
+		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/jwong/ghar/bin/"],
 		require => Vcsrepo["/home/jwong/ghar"],
+		user => jwong,
 	}
 }
