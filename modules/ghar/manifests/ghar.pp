@@ -22,14 +22,6 @@ class ghar::ghar($user, $repositories) {
 		refreshonly => true,
 	}
 	
-	file { "/home/${user}/":
-		ensure => "directory",
-		recurse => true, 
-		owner  => "${user}",
-		group  => "${user}",
-		require => Exec["ghar-install"],
-	}
-	
 }
 
 define ghar-add( ) {

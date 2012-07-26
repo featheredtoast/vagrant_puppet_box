@@ -1,6 +1,7 @@
 node lucid32 {
 	include apt
     include baseclass
+	include user
 	include git
 	include vim
 	# include mysql

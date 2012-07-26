@@ -21,12 +21,6 @@ class baseclass {
 	group { "puppet":
 		ensure => "present",
 	}
-	user { "jwong":
-	  ensure     => "present",
-	  managehome => true,
-	  shell   => "/bin/zsh",
-	  require => Package["zsh"],
-	}
 }
 
 node default {
