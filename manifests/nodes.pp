@@ -8,7 +8,8 @@ node lucid32 {
 	include python
 	include ant
 	class {'ghar':
-		user => 'jwong'
+		user => 'jwong',
+		repositories => ["https://github.com/awole20/zshrc.git", "https://github.com/awole20/vimrc.git", "https://github.com/awole20/gitconfig.git"],
 	}
 	include erlang
 }

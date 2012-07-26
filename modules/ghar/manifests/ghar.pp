@@ -1,4 +1,4 @@
-class ghar::ghar($user) {
+class ghar::ghar($user, $repositories) {
 	
 	vcsrepo { "/home/${user}/ghar":
 		require => Class["git", "python"],
@@ -9,11 +9,7 @@ class ghar::ghar($user) {
 		group => "${user}",
 	}
 	
-	ghar-add { "zshrchttps://github.com/awole20/zshrc.git":
-	}
-	ghar-add { "https://github.com/awole20/vimrc.git":
-	}
-	ghar-add { "https://github.com/awole20/gitconfig.git":
+	ghar-add { $repositories:
 	}
 	
 	exec { "ghar-install":

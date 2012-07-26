@@ -1,5 +1,6 @@
-class ghar($user){
+class ghar($user, $repositories){
 	class {'ghar::ghar':
-		user => "${user}"
+		user => "${user}",
+		repositories => $repositories,
 	}
 }
