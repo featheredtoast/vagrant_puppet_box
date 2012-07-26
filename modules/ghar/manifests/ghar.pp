@@ -9,24 +9,21 @@ class ghar::ghar($user) {
 		group => "${user}",
 	}
 	
-	ghar-add { "zshrc":
-		location => "https://github.com/awole20/zshrc.git",
+	ghar-add { "zshrchttps://github.com/awole20/zshrc.git":
 	}
-	ghar-add { "vimrc":
-		location => "https://github.com/awole20/vimrc.git",
+	ghar-add { "https://github.com/awole20/vimrc.git":
 	}
-	ghar-add { "gitconfig":
-		location => "https://github.com/awole20/gitconfig.git",
+	ghar-add { "https://github.com/awole20/gitconfig.git":
 	}
 	
 	exec { "ghar-install":
 		command => "ghar install",
 		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/${user}/ghar/bin/"],
-		require => Ghar-add["zshrc", "vimrc", "gitconfig"],
 		# user => ${user},
 		environment => ["HOME=/home/${user}/"],
 		group => "${user}",
-		cwd => "/home/${user}/"
+		cwd => "/home/${user}/",
+		refreshonly => true,
 	}
 	
 	file { "/home/${user}/":
@@ -39,10 +36,11 @@ class ghar::ghar($user) {
 	
 }
 
-define ghar-add( $location ) {
-	exec { "ghar-add-${location}":
-		command => "ghar add ${location}",
+define ghar-add( ) {
+	exec { "ghar-add-${name}":
+		command => "ghar add ${name}",
 		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/${ghar::ghar::user}/ghar/bin/"],
 		require => Vcsrepo["/home/${ghar::ghar::user}/ghar"],
+		notify => Exec["ghar-install"],
 	}
 }
