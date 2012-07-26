@@ -1,12 +1,12 @@
-class ghar::ghar {
+class ghar::ghar($user) {
 	
-	vcsrepo { "/home/jwong/ghar":
+	vcsrepo { "/home/${user}/ghar":
 		require => Class["git", "python"],
 		ensure => present,
 		provider => git,
 		source => "https://github.com/philips/ghar.git",
-		owner => "jwong",
-		group => "jwong",
+		owner => "${user}",
+		group => "${user}",
 	}
 	
 	ghar-add { "zshrc":
@@ -21,19 +21,19 @@ class ghar::ghar {
 	
 	exec { "ghar-install":
 		command => "ghar install",
-		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/jwong/ghar/bin/"],
+		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/${user}/ghar/bin/"],
 		require => Ghar-add["zshrc", "vimrc", "gitconfig"],
-		# user => jwong,
-		environment => ["HOME=/home/jwong/"],
-		group => "jwong",
-		cwd => "/home/jwong/"
+		# user => ${user},
+		environment => ["HOME=/home/${user}/"],
+		group => "${user}",
+		cwd => "/home/${user}/"
 	}
 	
-	file { "/home/jwong/":
+	file { "/home/${user}/":
 		ensure => "directory",
 		recurse => true, 
-		owner  => "jwong",
-		group  => "jwong",
+		owner  => "${user}",
+		group  => "${user}",
 		require => Exec["ghar-install"],
 	}
 	
@@ -42,9 +42,7 @@ class ghar::ghar {
 define ghar-add( $location ) {
 	exec { "ghar-add-${location}":
 		command => "ghar add ${location}",
-		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/jwong/ghar/bin/"],
-		require => Vcsrepo["/home/jwong/ghar"],
-		user => jwong,
-		group => "jwong",
+		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/${ghar::ghar::user}/ghar/bin/"],
+		require => Vcsrepo["/home/${ghar::ghar::user}/ghar"],
 	}
 }

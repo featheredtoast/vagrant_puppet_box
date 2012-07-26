@@ -1,3 +1,5 @@
 class ghar {
-	include ghar::ghar
+	class {'ghar::ghar':
+		user => 'jwong'
+	}
 }
