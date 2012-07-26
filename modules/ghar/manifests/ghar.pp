@@ -23,7 +23,10 @@ class ghar::ghar {
 		command => "ghar install",
 		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/jwong/ghar/bin/"],
 		require => Ghar-add["zshrc", "vimrc", "gitconfig"],
-		user => jwong,
+		# user => jwong,
+		environment => ["HOME=/home/jwong/"],
+		group => "jwong",
+		cwd => "/home/jwong/"
 	}
 	
 }
@@ -34,5 +37,6 @@ define ghar-add( $location ) {
 		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/jwong/ghar/bin/"],
 		require => Vcsrepo["/home/jwong/ghar"],
 		user => jwong,
+		group => "jwong",
 	}
 }
