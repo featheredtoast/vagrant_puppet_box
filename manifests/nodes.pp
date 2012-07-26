@@ -7,6 +7,8 @@ node lucid32 {
 	# include apache
 	include python
 	include ant
-	include ghar
+	class {'ghar':
+		user => 'jwong'
+	}
 	include erlang
 }

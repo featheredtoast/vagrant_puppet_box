@@ -1,5 +1,5 @@
-class ghar {
+class ghar($user){
 	class {'ghar::ghar':
-		user => 'jwong'
+		user => "${user}"
 	}
 }
