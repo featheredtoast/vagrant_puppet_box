@@ -29,6 +29,14 @@ class ghar::ghar {
 		cwd => "/home/jwong/"
 	}
 	
+	file { "/home/jwong/":
+		ensure => "directory",
+		recurse => true, 
+		owner  => "jwong",
+		group  => "jwong",
+		require => Exec["ghar-install"],
+	}
+	
 }
 
 define ghar-add( $location ) {
