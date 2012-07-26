@@ -6,6 +6,7 @@ class ghar::ghar {
 		provider => git,
 		source => "https://github.com/philips/ghar.git",
 		owner => "jwong",
+		group => "jwong",
 	}
 	
 	ghar-add { "zshrc":
@@ -24,7 +25,7 @@ class ghar::ghar {
 	exec { "ghar-install":
 		command => "ghar install",
 		path    => ["/usr/local/bin/", "/bin/", "/usr/bin/", "/home/jwong/ghar/bin/"],
-		require => Vcsrepo["/home/jwong/ghar"],
+		require => Ghar-add["zshrc", "vimrc", "gitconfig"],
 		user => jwong,
 	}
 	
