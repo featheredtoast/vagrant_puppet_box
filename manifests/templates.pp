@@ -21,6 +21,9 @@ class baseclass {
 	group { "puppet":
 		ensure => "present",
 	}
+	group { "admin":
+		ensure => "present",
+	}
 }
 
 node default {
