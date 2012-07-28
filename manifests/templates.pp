@@ -18,11 +18,13 @@ class baseclass {
 	$basepackages = [ "zsh"]
 	package { $basepackages: ensure => "latest" }
 	
-	group { "puppet":
+	group { ["puppet", "admin"]:
 		ensure => "present",
 	}
-	group { "admin":
-		ensure => "present",
+	user { "vagrant":
+	  ensure     => "present",
+	  groups => ["admin"],
+	  shell => "/bin/zsh",
 	}
 }
 
