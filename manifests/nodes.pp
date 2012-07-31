@@ -21,8 +21,8 @@ node precise32 {
 	include user
 	include git
 	include vim
-	# include mysql
-	# include apache
+	include mysql
+	include apache
 	include python
 	include ant
 	class {'ghar':
