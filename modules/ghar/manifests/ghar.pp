@@ -20,6 +20,14 @@ class ghar::ghar($user, $repositories) {
 		group => "${user}",
 		cwd => "/home/${user}/",
 		refreshonly => true,
+		notify => File["/home/${user}"],
+	}
+	
+	file { "/home/${user}":
+		ensure => "directory",
+		recurse => true,
+		owner  => "${user}",
+		group  => "${user}",
 	}
 	
 }
@@ -31,4 +39,6 @@ define ghar-add( ) {
 		require => Vcsrepo["/home/${ghar::ghar::user}/ghar"],
 		notify => Exec["ghar-install"],
 	}
+	
+	
 }
