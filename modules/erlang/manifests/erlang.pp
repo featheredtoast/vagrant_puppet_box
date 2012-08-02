@@ -1,6 +1,6 @@
 class erlang::erlang {
 	
-	$basepackages = [ "erlang" ]
+	$basepackages = [ "erlang","erlang-manpages" ]
 	package { $basepackages: ensure => "latest" }
 	
 }
