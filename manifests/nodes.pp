@@ -15,7 +15,7 @@ node lucid32 {
 	include erlang
 }
 
-node precise32 {
+node toybox {
 	include apt
     include baseclass
 	include user
