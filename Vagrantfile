@@ -7,7 +7,7 @@ Vagrant::Config.run do |config|
         toybox.vm.box_url = "http://files.vagrantup.com/precise32.box"
         toybox.vm.network :hostonly, "22.22.22.22"
         toybox.vm.forward_port 80, 8081
-        toybox.vm.host_name = "toybox"
+        toybox.vm.host_name = "toybox.test"
      end
 
     config.vm.define :toybox2 do |toybox2|
@@ -15,9 +15,15 @@ Vagrant::Config.run do |config|
         toybox2.vm.box_url = "http://files.vagrantup.com/precise32.box"
         toybox2.vm.network :hostonly, "22.22.22.23"
         toybox2.vm.forward_port 80, 8083
-        toybox2.vm.host_name = "toybox2"
+        toybox2.vm.host_name = "toybox2.test"
      end
 
+    config.vm.define :keyserv do |keyserv|
+        keyserv.vm.box = "precise32"
+        keyserv.vm.box_url = "http://files.vagrantup.com/precise32.box"
+        keyserv.vm.network :hostonly, "22.22.22.24"
+        keyserv.vm.host_name = "keyserv.test"
+     end
   
   # Enable the Puppet provisioner
   config.vm.provision :puppet, :module_path => "modules" do |puppet|

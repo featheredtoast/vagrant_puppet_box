@@ -1,11 +1,9 @@
-node lucid32 {
+node "toybox.test" {
 	include apt
     include baseclass
 	include user
 	include git
 	include vim
-	# include mysql
-	# include apache
 	include python
 	include ant
 	class {'ghar':
@@ -15,30 +13,26 @@ node lucid32 {
 	include erlang
 }
 
-node toybox {
+node "toybox2.test" {
 	include apt
     include baseclass
 	include user
 	include git
 	include vim
-	include mysql
-	include apache
 	include python
 	include ant
 	class {'ghar':
 		user => 'vagrant',
 		repositories => ["https://github.com/awole20/zshrc.git", "https://github.com/awole20/vimrc.git", "https://github.com/awole20/gitconfig.git"],
 	}
-	include erlang
 }
 
-node toybox2 {
+node "keyserv.test" {
 	include apt
     include baseclass
 	include user
 	include git
 	include vim
-	include mysql
 	include python
 	include ant
 	class {'ghar':
