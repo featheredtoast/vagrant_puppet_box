@@ -34,6 +34,7 @@ node "keyserv.test" {
 	include git
 	include vim
 	include python
+    include sks
 	include ant
 	class {'ghar':
 		user => 'vagrant',
