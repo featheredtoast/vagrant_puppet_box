@@ -8,7 +8,7 @@ node "toybox.test" {
 	include ant
 	class {'ghar':
 		user => 'vagrant',
-		repositories => ["https://github.com/awole20/zshrc.git", "https://github.com/awole20/vimrc.git", "https://github.com/awole20/gitconfig.git"],
+		repositories => ["https://github.com/awole20/dotfiles.git"],
 	}
 	include erlang
 }
@@ -23,7 +23,7 @@ node "toybox2.test" {
 	include ant
 	class {'ghar':
 		user => 'vagrant',
-		repositories => ["https://github.com/awole20/zshrc.git", "https://github.com/awole20/vimrc.git", "https://github.com/awole20/gitconfig.git"],
+		repositories => ["https://github.com/awole20/dotfiles.git"],
 	}
 }
 
@@ -38,6 +38,6 @@ node "keyserv.test" {
 	include ant
 	class {'ghar':
 		user => 'vagrant',
-		repositories => ["https://github.com/awole20/zshrc.git", "https://github.com/awole20/vimrc.git", "https://github.com/awole20/gitconfig.git"],
+		repositories => ["https://github.com/awole20/dotfiles.git"],
 	}
 }
