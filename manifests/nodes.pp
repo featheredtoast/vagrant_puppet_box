@@ -25,6 +25,7 @@ node "toybox2.test" {
 		user => 'vagrant',
 		repositories => ["https://github.com/awole20/dotfiles.git"],
 	}
+	include erlang
 }
 
 node "keyserv.test" {
