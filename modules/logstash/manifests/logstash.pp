@@ -13,5 +13,6 @@ class logstash::logstash{
             path => ["/bin", "/usr/bin"],
             command => "sudo /logstash.sh",
             require => File["/logstash.sh"],
+            creates => "/home/vagrant/logstash.jar"
     }
 }
