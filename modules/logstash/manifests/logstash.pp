@@ -10,6 +10,14 @@ class logstash::logstash{
             source => "puppet:///modules/logstash/logstash.sh",
             require => Package [$basepackages]
     }
+    file { "/home/vagrant/logstash-shipper.conf":
+            owner => "vagrant", group => "vagrant",
+            source => "puppet:///modules/logstash/logstash-shipper.conf",
+    }
+    file { "/home/vagrant/logstash-indexer.conf":
+            owner => "vagrant", group => "vagrant",
+            source => "puppet:///modules/logstash/logstash-indexer.conf",
+    }
     exec { "setup" :
             path => ["/bin", "/usr/bin"],
             command => "sudo /logstash.sh",
