@@ -7,4 +7,9 @@ sudo tar -zxvf /home/vagrant/rabbitmq.tar.gz -C /home/vagrant/
 sudo tar -zxvf /home/vagrant/elasticsearch.tar.gz -C /home/vagrant/
 sudo tar -zxvf /home/vagrant/kibana.tar.gz -C /home/vagrant/
 sudo tar -zxvf /home/vagrant/rubygems.tgz -C /home/vagrant/
+sudo ruby /home/vagrant/rubygems-1.8.25/setup.rb
+sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+sudo gem install bundler
+cd /home/vagrant/Kibana-0.2.0
+sudo bundle install
 sudo chown -R vagrant:vagrant /home/vagrant
