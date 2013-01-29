@@ -25,4 +25,5 @@ class logstash::logstash{
         source => [
             "https://github.com/rashidkpc/Kibana/archive/v0.2.0.tar.gz",
         ],
+    }
 }
