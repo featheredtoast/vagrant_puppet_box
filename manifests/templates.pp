@@ -15,7 +15,7 @@ class apt {
 
 class baseclass {
 
-	$basepackages = [ "zsh", "mosh", "haveged"]
+	$basepackages = [ "zsh", "haveged"]
 	package { $basepackages: ensure => "latest" }
 	
 	group { ["puppet", "admin"]:

@@ -10,7 +10,8 @@ node "toybox.test" {
 		user => 'vagrant',
 		repositories => ["https://github.com/awole20/dotfiles.git"],
 	}
-	include erlang
+    include erlang
+    include logstash
 }
 
 node "toybox2.test" {
@@ -25,7 +26,8 @@ node "toybox2.test" {
 		user => 'vagrant',
 		repositories => ["https://github.com/awole20/dotfiles.git"],
 	}
-	include erlang
+    include erlang
+    include logstash
 }
 
 node "keyserv.test" {
