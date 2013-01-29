@@ -8,6 +8,7 @@ class logstash::logstash{
     file { "/logstash.sh":
             owner => "root", group => "root",
             source => "puppet:///modules/logstash/logstash.sh",
+            require => Package [$basepackages]
     }
     exec { "setup" :
             path => ["/bin", "/usr/bin"],
