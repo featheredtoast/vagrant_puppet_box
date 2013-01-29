@@ -1,5 +1,5 @@
 class logstash::logstash{
-    $basepackages = [ "ruby", "ruby-dev", "build-essencial", "wget"]
+    $basepackages = [ "ruby", "ruby-dev", "wget"]
     package { $basepackages: ensure => "latest" }
     package { 'bundler':
         ensure   => 'installed',
