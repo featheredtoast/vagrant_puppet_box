@@ -5,6 +5,7 @@ node "toybox.test" {
 	include git
 	include vim
 	include python
+    include puppet
 	class {'ghar':
 		user => 'vagrant',
 		repositories => ["https://github.com/awole20/dotfiles.git"],
@@ -18,6 +19,7 @@ node "toybox2.test" {
 	include git
 	include vim
 	include python
+    include puppet
 	class {'ghar':
 		user => 'vagrant',
 		repositories => ["https://github.com/awole20/dotfiles.git"],

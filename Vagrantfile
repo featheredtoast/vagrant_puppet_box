@@ -18,13 +18,6 @@ Vagrant::Config.run do |config|
         toybox2.vm.host_name = "toybox2.test"
      end
 
-    config.vm.define :keyserv do |keyserv|
-        keyserv.vm.box = "precise32"
-        keyserv.vm.box_url = "http://files.vagrantup.com/precise32.box"
-        keyserv.vm.network :hostonly, "22.22.22.24"
-        keyserv.vm.host_name = "keyserv.test"
-     end
-  
   # Enable the Puppet provisioner
   config.vm.provision :puppet, :module_path => "modules" do |puppet|
 	
