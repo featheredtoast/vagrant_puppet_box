@@ -1,3 +1,4 @@
 class apache {
-	include apache::apache
+	require apache::package
+    include apache::service
 }

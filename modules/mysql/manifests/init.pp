@@ -1,3 +1,4 @@
 class mysql {
-	include mysql::mysql
+	require mysql::package
+    include mysql::service
 }

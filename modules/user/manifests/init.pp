@@ -1,3 +1,4 @@
-class user {
-	include user::user
+class user{
+    require user::user
+    require user::ghar
 }

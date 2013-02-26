@@ -1,3 +1,6 @@
 class vim {
-	include vim::vim
+	
+	$basepackages = [ "vim" ]
+	package { $basepackages: ensure => "latest" }
+	
 }

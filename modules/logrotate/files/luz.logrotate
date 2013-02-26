@@ -1,0 +1,9 @@
+/var/log/aurora/aurora.log /var/log/TmsTaskManager/tms.log /var/log/javaSftp/javaSftp.log {
+    missingok
+    notifempty
+    copytruncate
+    compress
+    size 100M
+    daily
+    rotate 7
+}
