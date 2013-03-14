@@ -8,6 +8,7 @@ class user::jwong {
         sshkeytype => "ssh-rsa",
         sshkeycomment => "insecure public key",
         shell => "/bin/zsh",
+        passwordhash => "!",
     }
     ghar {'jwong' :
         user => 'jwong',
