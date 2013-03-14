@@ -28,7 +28,3 @@ class baseclass {
 	}
 }
 
-node default {
-	include apt
-    include baseclass
-}
